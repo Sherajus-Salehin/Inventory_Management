@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Getter
@@ -20,7 +19,7 @@ public class Stock {
     private String name;
     @Min(value = 1, message = "quantity must be at least 1")
     Integer quantity;
-    private boolean active;
+    private Boolean active;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false,unique = true)
     @JsonBackReference

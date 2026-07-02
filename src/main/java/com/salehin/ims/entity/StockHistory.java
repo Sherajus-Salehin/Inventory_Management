@@ -1,14 +1,10 @@
 package com.salehin.ims.entity;
-
+import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
@@ -28,4 +24,12 @@ public class StockHistory {
     private String action;
     @CreationTimestamp
     private LocalDateTime actionDate;
+
+    public StockHistory(Long id, Long id1, Integer oldQuantity, Integer newQuantity, String action) {
+        stockId = id;
+        productId = id1;
+        this.oldQuantity = oldQuantity;
+        this.newQuantity = newQuantity;
+        this.action = action;
+    }
 }

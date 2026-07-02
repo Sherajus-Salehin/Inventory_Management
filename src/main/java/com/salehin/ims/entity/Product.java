@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name="products_ims")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,11 +17,11 @@ import lombok.Setter;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String name;
     private String sku;
-    private double price;
-    private boolean active;
+    private Double price;
+    private Boolean active;
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
     @JsonManagedReference
     private Stock stock;
